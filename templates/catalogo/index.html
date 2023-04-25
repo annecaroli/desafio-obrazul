@@ -1,37 +1,36 @@
 {% extends 'shared/base.html' %}
 {% load static %}
 {% block content %}
-
-<section class="conteudo">
-    <section class="banner">
-        <img class="banner__imagem" src="{% static '/assets/imagens/Banner(2).png' %}" alt="banner Obrazul">
-        <h1 class="banner__titulo"> Catálogo Obrazul</h1>
-    </section>
-    <section class="galeria">
-        <div class="cards">
-            <ul class="cards__lista">
-                {% if cards %}
-                {% for produto in cards %}
-                <li class="card">
-                    <a href="{% url 'produto' %}">
-                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/' %}{{ produto.foto }}" alt="foto">
-                    </a>
-                    <div class="card__info">
-                        <p class="card__titulo">{{ produto.nome }}</p>
-                        <div class="card__texto">
-                            <p class="card__descricao">{{ produto.descricao }}</p>
-                        </div>
-                        <p class="card__descricao">Preço: {{ produto.preco }}</p>
-                        <p class="card__descricao">Data de cadastro: {{ produto.data_cadastro }}</p>
-                        <p class="card__descricao">Data de atualização: {{ produto.data_atualizacao }}</p>
-                    </div>
-                </li>
-                {% endfor %}
-                {% else  %}
-                {% endif %}
-            </ul>
-        </div>
-    </section>
-</section>
-
+        <section class="conteudo">
+            <section class="banner">
+                <img class="banner__imagem" src="{% static 'assets/imagens/banner.png' %}" alt="banner obrazul">
+                <h1 class="banner__titulo">CATÁLOGO OBRAZUL</h1>
+            </section>
+            <section class="galeria">
+                <div class="cards">
+                    <ul class="cards__lista">
+                        {% if cards %}
+                        {% for produto in cards %}
+                        <li class="card">
+                            <div class="card__info">
+                                <p class="card__titulo">{{ produto.nome }}</p>
+                                <div class="card__texto">
+                                    <p class="card__descricao">{{ produto.descricao }}</p>
+                                </div>
+                                <p class="card__descricao">{{ produto.categoria }}</p>
+                            </div>
+                            <div>
+                                <a href="{% url 'produto' produto.id %}"><button class="btn btn-success col-12" style="padding: top 5px;">Ver produto</button></a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </main>
+</div>
 {% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block content %}
+        <div>
+            <section class="galeria">
+                <div class="cards">
+                    <h2 class="cards__titulo">Adicionar nova categoria
+                        <a href="{% url 'nova_categoria' %}"><button class="btn btn-success col-1" style="padding: top 5px;">+</button></a>
+                    </h2>
+                </div>
+            </section>
+            <section class="conteudo">
+                <section class="galeria">
+                    <div class="cards">
+                        <ul class="cards__lista">
+                            {% if cards %}
+                            {% for categoria in cards %}
+                            <li class="card">
+                                <div class="card__info">
+                                    <p class="card__titulo">{{ categoria.nome }}</p>
+                                </div>
+                                <div>
+                                    <a href="{% url 'editar_categoria' categoria.id %}"><button class="btn btn-success col-12" style="padding: top 5px;">Editar</button></a>
+                                    <a href="{% url 'deletar_categoria' categoria.id %}"><button class="btn btn-danger col-12" style="padding: top 5px;">Deletar</button></a>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </div>
+        <div>
+            
+        </div>
+    </main>
+</div>
+{% endblock %}

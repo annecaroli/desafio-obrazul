@@ -1,5 +1,18 @@
 from django import forms
 from apps.catalogo.models import Produto
+from apps.catalogo.models import Categoria
+
+class CategoriaForms(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        #fields= ['nome']
+        exclude = []
+        labels = {
+            'nome': "Nome"
+        }
+        widgets = {
+            'nome': forms.TextInput(attrs={'class':'form-control'})
+        }
 
 class ProdutoForms(forms.ModelForm):
     class Meta:
@@ -8,7 +21,8 @@ class ProdutoForms(forms.ModelForm):
         labels = {
             'descricao': "Descrição",
             'preco': "Preço",
-            'data_cadastro': "Data de Cadastro"
+            'data_cadastro': "Data de Cadastro",
+            'categoria': "Categoria"
         }
         widgets = {
             'nome': forms.TextInput(attrs={'class':'form-control'}),
@@ -21,5 +35,5 @@ class ProdutoForms(forms.ModelForm):
                     'type':'date'
                 },
             ),
-            'foto': forms.FileInput(attrs={'class':'form-control'}),
+            'categoria': forms.Select(attrs={'class':'form-control'})
         }
