@@ -4,7 +4,7 @@ Projeto desenvolvido para processo seletivo da empresa Obrazul
 
 ## Pré-requisitos
 
-Antes de começar, você precisa ter o Python e o Django instalados em sua máquina.
+Antes de começar, você precisa ter o Python (versão 3.8) e o Django instalados em sua máquina.
 
 ## Como usar
 
