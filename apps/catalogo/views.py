@@ -15,7 +15,7 @@ def index(request):
 
         return render(request, 'catalogo/index.html', {"cards": produtos})
 
-def produto(request, produto_id):
+def produtos(request, produto_id):
     produto = get_object_or_404(Produto, pk=produto_id)
     return render(request, 'catalogo/produto.html', {"produto": produto})
 

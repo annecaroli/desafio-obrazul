@@ -18,6 +18,7 @@ class Produto(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=False,
+        default="Sem Categoria",
         related_name='categoria'
     )
 
